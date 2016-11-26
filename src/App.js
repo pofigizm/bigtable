@@ -2,13 +2,13 @@ import React from 'react'
 import shallowEqual from 'fbjs/lib/shallowEqual'
 
 class Inp extends React.Component {
-  shouldComponentUpdate (props, state) {
+  shouldComponentUpdate(props) {
     return !shallowEqual(this.props.data, props.data)
   }
   change(...args) {
     this.props.change(...args)
   }
-  render () {
+  render() {
     const { ix, data } = this.props
     return (
       <input

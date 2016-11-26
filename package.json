@@ -4,21 +4,68 @@
   "private": true,
   "homepage": "https://pofigizm.github.io/bigtable",
   "devDependencies": {
+    "babel-eslint": "7.1.1",
+    "eslint": "3.11.0",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.7.1",
     "gh-pages": "0.12.0",
+    "react-addons-perf": "15.4.1",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
     "react": "15.4.1",
-    "react-addons-perf": "15.4.1",
     "react-dom": "15.4.1",
     "react-redux": "4.4.6",
     "redux": "3.6.0"
   },
   "scripts": {
+    "lint": "eslint src/.",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-1"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "rules": {
+      "no-console": 0,
+      "arrow-parens": [
+        2,
+        "as-needed"
+      ],
+      "comma-dangle": [
+        2,
+        {
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
+          "functions": "ignore"
+        }
+      ],
+      "semi": [
+        2,
+        "never"
+      ],
+      "import/extensions": 0,
+      "import/no-unresolved": 0,
+      "import/no-extraneous-dependencies": 0,
+      "import/prefer-default-export": 0,
+      "react/jsx-curly-spacing": 0,
+      "react/jsx-filename-extension": 0,
+      "react/forbid-prop-types": 0,
+      "react/prop-types": 0
+    }
   }
 }

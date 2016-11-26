@@ -8,11 +8,9 @@ import reducer from './reducer'
 
 const store = createStore(reducer)
 
-const render = () => ReactDOM.render(
+ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root') // eslint-disable-line
 )
-
-render()
