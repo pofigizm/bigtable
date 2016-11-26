@@ -1442,6 +1442,12 @@ css-selector-tokenizer@^0.6.0:
     fastparse "^1.1.1"
     regexpu-core "^1.0.0"
 
+css-vendor@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/css-vendor/-/css-vendor-0.3.8.tgz#6421cfd3034ce664fe7673972fd0119fc28941fa"
+  dependencies:
+    is-in-browser "^1.0.2"
+
 css-what@2.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
@@ -2482,7 +2488,7 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
-hoist-non-react-statics@^1.0.3:
+hoist-non-react-statics@^1.0.3, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
@@ -2757,6 +2763,10 @@ is-glob@^3.0.0:
   resolved "https://registry.yarnpkg.com/is-glob/-/is-glob-3.1.0.tgz#7ba5ae24217804ac70707b96922567486cc3e84a"
   dependencies:
     is-extglob "^2.1.0"
+
+is-in-browser@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/is-in-browser/-/is-in-browser-1.0.2.tgz#f688bea8f1e5aadc3244ebc870d188cfb9b613cf"
 
 is-my-json-valid@^2.10.0, is-my-json-valid@^2.12.4:
   version "2.15.0"
@@ -3246,6 +3256,67 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.3.6"
 
+jss-camel-case@^2.0.1:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/jss-camel-case/-/jss-camel-case-2.0.2.tgz#62776f1480c4a2d4270745ab6ec6cb9f29a1e4e5"
+
+jss-compose@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/jss-compose/-/jss-compose-1.1.0.tgz#e07e1c5dc881164ce261f4f2c3b53c755fa31ca4"
+  dependencies:
+    warning "^3.0.0"
+
+jss-default-unit@^4.1.0:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/jss-default-unit/-/jss-default-unit-4.1.4.tgz#57b9462981b5f299ecea608b84c7e6235614c1e7"
+
+jss-expand@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/jss-expand/-/jss-expand-1.6.0.tgz#a7b3eb0de911326eff8cecb6884b3662f405303b"
+
+jss-extend@^2.0.4:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/jss-extend/-/jss-extend-2.0.6.tgz#fc99e334b4e3feb96ce3382dcd22792ab00496b0"
+  dependencies:
+    warning "^3.0.0"
+
+jss-nested@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/jss-nested/-/jss-nested-2.5.0.tgz#d1a5ec778bcc3352616c8917abbed0b80ef1286f"
+  dependencies:
+    warning "^3.0.0"
+
+jss-preset-default@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/jss-preset-default/-/jss-preset-default-0.9.0.tgz#46644fe256ce6fa153a96230e2dfa4d32099f24f"
+  dependencies:
+    jss-camel-case "^2.0.1"
+    jss-compose "^1.1.0"
+    jss-default-unit "^4.1.0"
+    jss-expand "^1.6.0"
+    jss-extend "^2.0.4"
+    jss-nested "^2.5.0"
+    jss-props-sort "^2.0.0"
+    jss-vendor-prefixer "^3.0.0"
+
+jss-props-sort@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/jss-props-sort/-/jss-props-sort-2.0.2.tgz#ea74663d43970d68553008d7c3eb07859ef45ea1"
+
+jss-vendor-prefixer@^3.0.0:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/jss-vendor-prefixer/-/jss-vendor-prefixer-3.0.3.tgz#b36a9cb36273707595d8b60c84d07d60947e8254"
+  dependencies:
+    css-vendor "^0.3.8"
+
+jss@^5.5.6:
+  version "5.5.6"
+  resolved "https://registry.yarnpkg.com/jss/-/jss-5.5.6.tgz#30107928dc6f608f6b8e3e70e0577edc8a94e216"
+  dependencies:
+    is-in-browser "^1.0.2"
+    murmurhash-js "^1.0.0"
+    warning "^3.0.0"
+
 jsx-ast-utils@^1.0.0, jsx-ast-utils@^1.3.1, jsx-ast-utils@^1.3.3:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-1.3.4.tgz#0257ed1cc4b1e65b39d7d9940f9fb4f20f7ba0a9"
@@ -3585,6 +3656,10 @@ multimatch@^2.1.0:
     array-union "^1.0.1"
     arrify "^1.0.0"
     minimatch "^3.0.0"
+
+murmurhash-js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/murmurhash-js/-/murmurhash-js-1.0.0.tgz#b06278e21fc6c37fa5313732b0412bcb6ae15f51"
 
 mute-stream@0.0.5:
   version "0.0.5"
@@ -4367,6 +4442,14 @@ react-dom@15.4.1:
     fbjs "^0.8.1"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+react-jss@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-jss/-/react-jss-4.2.0.tgz#5a300a98c095d946940682c09b7f223e01828541"
+  dependencies:
+    hoist-non-react-statics "^1.2.0"
+    jss "^5.5.6"
+    jss-preset-default "^0.9.0"
 
 react-redux@4.4.6:
   version "4.4.6"
@@ -5280,6 +5363,12 @@ walker@~1.0.5:
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
   dependencies:
     makeerror "1.0.x"
+
+warning@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
+  dependencies:
+    loose-envify "^1.0.0"
 
 watch@~0.10.0:
   version "0.10.0"

@@ -4,8 +4,9 @@ import { connect } from 'react-redux'
 import * as actions from './actions'
 import App from './App'
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   list: state.list,
+  cn: props.sheet.classes,
 })
 
 const mapDispatchToProps = dispatch => ({

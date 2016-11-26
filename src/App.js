@@ -9,12 +9,12 @@ class Inp extends React.Component {
     this.props.change(...args)
   }
   render() {
-    const { ix, data } = this.props
+    const { ix, data, cn } = this.props
     return (
       <input
         value={ data.value }
         onChange={ ev => this.change(ix, ev.target.value) }
-        style={{ display: 'block', marginBottom: 5 }}
+        className={cn.input}
       />
     )
   }
@@ -23,10 +23,11 @@ class Inp extends React.Component {
 const App = ({
   list,
   actions,
+  cn,
 }) => (
   <div>
     { list.map((data, ix) => (
-      <Inp {...{ key: ix, ix, data, change: actions.change }} />
+      <Inp {...{ key: ix, ix, data, change: actions.change, cn }} />
     )) }
   </div>
 )
