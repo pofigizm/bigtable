@@ -1,21 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import shallowEqual from 'fbjs/lib/shallowEqual'
 
-class App extends Component {
-  render() {
+class Inp extends React.Component {
+  shouldComponentUpdate (props, state) {
+    return !shallowEqual(this.props.data, props.data)
+  }
+  change(...args) {
+    this.props.change(...args)
+  }
+  render () {
+    const { ix, data } = this.props
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <input
+        value={ data.value }
+        onChange={ ev => this.change(ix, ev.target.value) }
+        style={{ display: 'block', marginBottom: 5 }}
+      />
+    )
   }
 }
 
-export default App;
+const App = ({
+  list,
+  actions,
+}) => (
+  <div>
+    { list.map((data, ix) => (
+      <Inp {...{ key: ix, ix, data, change: actions.change }} />
+    )) }
+  </div>
+)
+
+export default App
