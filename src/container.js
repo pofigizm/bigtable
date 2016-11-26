@@ -5,7 +5,8 @@ import * as actions from './actions'
 import App from './App'
 
 const mapStateToProps = (state, props) => ({
-  list: state.list,
+  list: state.list.slice(state.first, state.first + state.show),
+  height: state.height,
   cn: props.sheet.classes,
 })
 

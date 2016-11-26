@@ -1,35 +1,29 @@
 import React from 'react'
-import shallowEqual from 'fbjs/lib/shallowEqual'
 
-class Inp extends React.Component {
-  shouldComponentUpdate(props) {
-    return !shallowEqual(this.props.data, props.data)
-  }
-  change(...args) {
-    this.props.change(...args)
+import Inp from './Inp'
+import { throttle } from './helpers'
+
+class App extends React.Component {
+  componentWillMount() {
+    this.props.actions.height(window.innerHeight)
+    window.addEventListener('resize', throttle(() => {
+      this.props.actions.height(window.innerHeight)
+    }, 30))
+    window.addEventListener('scroll', throttle(() => {
+      const rec = document.body.getBoundingClientRect()
+      this.props.actions.scroll(rec.top)
+    }, 30))
   }
   render() {
-    const { ix, data, cn } = this.props
+    const { list, height, actions, cn } = this.props
     return (
-      <input
-        value={ data.value }
-        onChange={ ev => this.change(ix, ev.target.value) }
-        className={cn.input}
-      />
+      <div className={ cn.box } style={{ height }}>
+        { list.map(data => (
+          <Inp {...{ key: data.ix, data, change: actions.change, cn }} />
+        )) }
+      </div>
     )
   }
 }
-
-const App = ({
-  list,
-  actions,
-  cn,
-}) => (
-  <div>
-    { list.map((data, ix) => (
-      <Inp {...{ key: ix, ix, data, change: actions.change, cn }} />
-    )) }
-  </div>
-)
 
 export default App
