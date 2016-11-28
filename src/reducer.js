@@ -3,8 +3,8 @@ const SIZE = Number(location.search.slice(1)) || 50000
 
 const initial = {
   list: new Array(SIZE)
-    .fill({ value: 'txt' })
-    .map((e, i) => ({
+    .fill(0)
+    .map((_, i) => ({
       value: `txt-${i}`,
       ix: i,
       select: false,
