@@ -1,6 +1,7 @@
 const HEIGHT = 25
 const SIZE = Number(location.search.slice(1)) || 50000
 
+console.time('allocate_array')
 const initial = {
   list: new Array(SIZE)
     .fill(0)
@@ -13,6 +14,8 @@ const initial = {
   show: 0,
   first: 0,
 }
+console.timeEnd('allocate_array')
+console.time('other')
 
 export default (state = initial, action) => {
   switch (action.type) {

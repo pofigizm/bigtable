@@ -13,6 +13,11 @@ class App extends React.Component {
       const rec = document.body.getBoundingClientRect()
       this.props.actions.scroll(rec.top)
     }, 30))
+    console.timeEnd('other')
+    console.time('render')
+  }
+  componentDidMount() {
+    console.timeEnd('render')
   }
   render() {
     const { list, height, actions, cn } = this.props
