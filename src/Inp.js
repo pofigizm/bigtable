@@ -1,34 +1,29 @@
-import React from 'react'
-import shallowEqual from 'fbjs/lib/shallowEqual'
+import React, { PureComponent } from 'react'
 
-const HEIGHT = 25
+class Inp extends PureComponent {
+  constructor() {
+    super()
+    this.change = this.change.bind(this)
+  }
 
-class Inp extends React.Component {
-  shouldComponentUpdate(props) {
-    return !shallowEqual(this.props.data, props.data)
+  change(ev) {
+    this.props.change(
+      this.props.xid,
+      this.props.yid,
+      'value',
+      ev.target.value,
+    )
   }
-  change(...args) {
-    this.props.change(...args)
-  }
+
   render() {
-    const { data, cn } = this.props
+    const { value, style, selected, cn } = this.props
     return (
-      <div
-        className={ cn.wrapper }
-        style={{ top: data.ix * HEIGHT }}
-      >
-        <input
-          value={ data.value }
-          onChange={ ev => this.change(data.ix, 'value', ev.target.value) }
-          className={ cn.input }
-        />
-        <input
-          type="checkbox"
-          checked={ data.select }
-          onChange={ ev => this.change(data.ix, 'select', ev.target.checked) }
-          className={ cn.checkbox }
-        />
-      </div>
+      <input
+        className={ selected ? cn.selectedCell : cn.cell }
+        style={ style }
+        value={ value }
+        onChange={ this.change }
+      />
     )
   }
 }

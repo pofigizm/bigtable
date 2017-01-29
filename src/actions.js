@@ -5,12 +5,14 @@ export const change = (ix, field, value) => ({
   value,
 })
 
-export const height = size => ({
-  type: 'HEIGHT',
-  size,
+export const size = (width, height) => ({
+  type: 'SIZE',
+  width,
+  height,
 })
 
-export const scroll = top => ({
+export const scroll = (left, top) => ({
   type: 'SCROLL',
+  left,
   top,
 })
