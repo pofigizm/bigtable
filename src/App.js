@@ -30,23 +30,26 @@ const List = props => {
 class App extends React.Component {
   componentWillMount() {
     console.timeEnd('other')
+    console.time('render')
   }
 
   componentDidMount() {
+    console.timeEnd('render')
     this.props.actions.size(this.scroll.clientWidth, this.scroll.clientHeight)
     this.props.actions.scroll(this.scroll.scrollLeft, this.scroll.scrollTop)
 
-    this.scroll.addEventListener('resize', throttle(() => {
+    window.addEventListener('resize', throttle(() => {
       this.props.actions.size(this.scroll.clientWidth, this.scroll.clientHeight)
-    }, 16))
+    }, 10))
     this.scroll.addEventListener('scroll', throttle(e => {
       const scroll = e.target
       this.props.actions.scroll(scroll.scrollLeft, scroll.scrollTop)
-    }, 16))
+    }, 10))
   }
 
   render() {
     const {
+      fields,
       cols,
       colsStyle,
       rows,
@@ -61,6 +64,13 @@ class App extends React.Component {
       <div
         className={ cn.box }
       >
+        <div
+          className={ cn.stat }
+        >
+          FA: { fields }
+          <br />
+          FV: { cells.length }
+        </div>
         <List
           className={ cn.header }
           viewClassName={ cn.headerView }

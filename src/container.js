@@ -5,6 +5,7 @@ import * as actions from './actions'
 import App from './App'
 
 const mapStateToProps = (state, props) => ({
+  fields: state.cols.length * state.rows.length,
   cols: state.cols.slice(state.showCols.first, state.showCols.last),
   colsStyle: state.showCols.style,
   rows: state.rows.slice(state.showRows.first, state.showRows.last),

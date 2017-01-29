@@ -82,10 +82,16 @@ export default (state = initial, action) => {
         showCols: {
           ...state.showCols,
           width: action.width,
+          last: state.cols.findIndex(el =>
+            el.style.left + el.style.width >= state.showCols.style.left + action.width
+          ) + 1,
         },
         showRows: {
           ...state.showRows,
           height: action.height,
+          last: state.rows.findIndex(el =>
+            el.style.top + el.style.height >= state.showRows.style.top + action.height
+          ) + 1,
         },
       }
     case 'SCROLL':

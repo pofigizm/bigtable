@@ -22,8 +22,18 @@ export default {
     left: 0,
     right: 0,
     bottom: 0,
+    boxSizing: 'border-box',
     overflow: 'hidden',
-    backgroundColor: 'aliceblue',
+  },
+  stat: {
+    composes: '$base',
+    bottom: 'auto',
+    right: 'auto',
+    width: 100,
+    height: 50,
+    border: '1px solid blue',
+    backgroundColor: 'yellow',
+    padding: 5,
   },
   header: {
     composes: '$base',
@@ -38,8 +48,8 @@ export default {
   headerItem: {
     composes: '$base',
     right: 'auto',
-    boxSizing: 'border-box',
     border: '1px solid blue',
+    backgroundColor: 'aliceblue',
     padding: 5,
   },
   side: {
@@ -55,8 +65,8 @@ export default {
   sideItem: {
     composes: '$base',
     bottom: 'auto',
-    boxSizing: 'border-box',
     border: '1px solid blue',
+    backgroundColor: 'aliceblue',
     padding: 5,
   },
   cells: {
@@ -75,10 +85,9 @@ export default {
     composes: '$base',
     bottom: 'auto',
     right: 'auto',
-    boxSizing: 'border-box',
     border: '1px solid green',
-    padding: 5,
     backgroundColor: 'honeydew',
+    padding: 5,
   },
   scroll: {
     composes: '$base',
