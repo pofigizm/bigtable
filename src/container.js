@@ -5,8 +5,28 @@ import * as actions from './actions'
 import App from './App'
 
 const mapStateToProps = (state, props) => ({
-  list: state.list.slice(state.first, state.first + state.show),
-  height: state.height,
+  fields: state.cols.length * state.rows.length,
+  cols: state.cols.slice(state.showCols.first, state.showCols.last),
+  colsStyle: state.showCols.style,
+  rows: state.rows.slice(state.showRows.first, state.showRows.last),
+  rowsStyle: state.showRows.style,
+  cells: state.cells.slice(state.showCols.first, state.showCols.last)
+    .reduce((acc, col) => ([
+      ...acc,
+      ...col.rows.slice(state.showRows.first, state.showRows.last)
+        .map(row => ({
+          ...row,
+          xid: col.xid,
+          style: {
+            ...state.cols[col.xid].style,
+            ...state.rows[row.yid].style,
+          },
+        })),
+    ]), []),
+  cellsStyle: {
+    ...state.showCols.style,
+    ...state.showRows.style,
+  },
   cn: props.sheet.classes,
 })
 
