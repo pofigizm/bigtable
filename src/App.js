@@ -4,7 +4,6 @@ import Inp from './Inp'
 import { throttle } from './helpers'
 
 const List = props => {
-  // comment
   return (
     <div
       className={ props.className }
@@ -28,6 +27,11 @@ const List = props => {
 }
 
 class App extends React.Component {
+  constructor() {
+    super()
+    this.click = this.click.bind(this)
+  }
+
   componentWillMount() {
     console.timeEnd('other')
     console.time('render')
@@ -45,6 +49,15 @@ class App extends React.Component {
       const scroll = e.target
       this.props.actions.scroll(scroll.scrollLeft, scroll.scrollTop)
     }, 10))
+  }
+
+  click(e) {
+    const { clientX, clientY } = e
+    e.preventDefault()
+
+    this.scroll.style.display = 'none'
+    document.elementFromPoint(clientX, clientY).focus()
+    this.scroll.style.display = 'block'
   }
 
   render() {
@@ -87,6 +100,7 @@ class App extends React.Component {
         />
         <div
           className={ cn.cells }
+          ref={ node => { this.cells = node } }
         >
           <div
             className={ cn.cellsView }
@@ -95,6 +109,8 @@ class App extends React.Component {
             { cells.map(el => (
               <Inp
                 key={ `${el.style.left}-${el.style.top}` }
+                xid={ el.xid }
+                yid={ el.yid }
                 style={ el.style }
                 value={ el.value }
                 change={ actions.change }
@@ -106,6 +122,7 @@ class App extends React.Component {
         <div
           className={ cn.scroll }
           ref={ node => { this.scroll = node } }
+          onClick={ this.click }
         >
           <div
             style={ cellsStyle }

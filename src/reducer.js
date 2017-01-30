@@ -64,18 +64,26 @@ console.time('other')
 
 export default (state = initial, action) => {
   switch (action.type) {
-//    case 'CHANGE':
-//      return {
-//        ...state,
-//        list: [
-//          ...(state.list.slice(0, action.ix)),
-//          {
-//            ...state.list[action.ix],
-//            [action.field]: action.value,
-//          },
-//          ...(state.list.slice(action.ix + 1)),
-//        ],
-//      }
+    case 'CHANGE':
+      // TODO change to immutability helper
+      return {
+        ...state,
+        cells: [
+          ...(state.cells.slice(0, action.xid)),
+          {
+            ...state.cells[action.xid],
+            rows: [
+              ...(state.cells[action.xid].rows.slice(0, action.yid)),
+              {
+                ...state.cells[action.xid].rows[action.yid],
+                [action.field]: action.value,
+              },
+              ...(state.cells[action.xid].rows.slice(action.yid + 1)),
+            ],
+          },
+          ...(state.cells.slice(action.xid + 1)),
+        ],
+      }
     case 'SIZE':
       return {
         ...state,

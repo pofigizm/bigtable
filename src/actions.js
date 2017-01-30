@@ -1,6 +1,7 @@
-export const change = (ix, field, value) => ({
+export const change = (xid, yid, field, value) => ({
   type: 'CHANGE',
-  ix,
+  xid,
+  yid,
   field,
   value,
 })

@@ -73,13 +73,11 @@ export default {
     composes: '$base',
     top: 50,
     left: 100,
-    backgroundColor: 'honeydew',
   },
   cellsView: {
     composes: '$base',
     bottom: 'auto',
     right: 'auto',
-    backgroundColor: 'honeydew',
   },
   cell: {
     composes: '$base',
@@ -95,6 +93,7 @@ export default {
     left: 100,
     background: 'none',
     overflow: 'auto',
+    cursor: 'text',
   },
   selectedCell: {
     composes: '$cell',
