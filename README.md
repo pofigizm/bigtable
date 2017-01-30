@@ -2,6 +2,6 @@
 
 Test for bigtable
 
-[50 000 elements](https://pofigizm.github.io/bigtable/)
+[250 000 elements](https://pofigizm.github.io/bigtable/)
 
-[500 000 elements](https://pofigizm.github.io/bigtable/?500000)
+[1 000 000 elements](https://pofigizm.github.io/bigtable/?1000)
